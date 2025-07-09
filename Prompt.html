@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASBL Solidarité Ensemble</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need specific styling */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .testimonial-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl mr-3">
+                        SE
+                    </div>
+                    <span class="text-xl font-semibold text-gray-800">Solidarité Ensemble</span>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-blue-600 font-medium">Accueil</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition">À propos</a>
+                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition">Services</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition">Témoignages</a>
+                    <a href="#events" class="text-gray-600 hover:text-blue-600 transition">Événements</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+                    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Faire un don</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-blue-600 font-medium">Accueil</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600 transition">À propos</a>
+                <a href="#services" class="block py-2 text-gray-600 hover:text-blue-600 transition">Services</a>
+                <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600 transition">Témoignages</a>
+                <a href="#events" class="block py-2 text-gray-600 hover:text-blue-600 transition">Événements</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600 transition">Contact</a>
+                <a href="#" class="block mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-center">Faire un don</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Ensemble pour un monde plus solidaire</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Notre ASBL œuvre quotidiennement pour créer des liens, soutenir les plus démunis et bâtir une communauté plus inclusive.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#about" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-medium transition">En savoir plus</a>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-md text-lg font-medium transition">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">À propos de notre ASBL</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Équipe de l'ASBL" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Notre mission</h3>
+                    <p class="text-gray-600 mb-6">Fondée en 2010, notre ASBL a pour mission de créer des ponts entre les différentes composantes de la société, en particulier en soutenant les personnes en situation de précarité et en favorisant l'inclusion sociale.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-hands-helping text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Solidarité</h4>
+                                <p class="text-gray-600 text-sm">Nous croyons en la force du collectif et de l'entraide.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-balance-scale text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Équité</h4>
+                                <p class="text-gray-600 text-sm">Nous œuvrons pour une société plus juste et équitable.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-heart text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Empathie</h4>
+                                <p class="text-gray-600 text-sm">Nous plaçons l'humain au centre de nos actions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-leaf text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Durabilité</h4>
+                                <p class="text-gray-600 text-sm">Nos solutions sont pensées pour le long terme.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#membership" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition">Rejoignez-nous</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Nous proposons une gamme complète de services pour répondre aux besoins des personnes que nous accompagnons.</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-utensils text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Aide alimentaire</h3>
+                    <p class="text-gray-600 mb-4">Distribution de colis alimentaires et repas chauds pour les personnes en situation de précarité.</p>
+                    <a href="#" class="text-blue-600 font-medium inline-flex items-center">En savoir plus <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Hébergement d'urgence</h3>
+                    <p class="text-gray-600 mb-4">Mise à disposition de places d'hébergement temporaire pour les personnes sans abri.</p>
+                    <a href="#" class="text-blue-600 font-medium inline-flex items-center">En savoir plus <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Formation professionnelle</h3>
+                    <p class="text-gray-600 mb-4">Programmes de formation pour aider les bénéficiaires à retrouver une autonomie professionnelle.</p>
+                    <a href="#" class="text-blue-600 font-medium inline-flex items-center">En savoir plus <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hand-holding-heart text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Soutien psychologique</h3>
+                    <p class="text-gray-600 mb-4">Accompagnement psychologique individuel et ateliers de groupe pour le bien-être mental.</p>
+                    <a href="#" class="text-blue-600 font-medium inline-flex items-center">En savoir plus <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-child text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Activités jeunesse</h3>
+                    <p class="text-gray-600 mb-4">Programmes éducatifs et récréatifs pour les enfants et adolescents issus de milieux défavorisés.</p>
+                    <a href="#" class="text-blue-600 font-medium inline-flex items-center">En savoir plus <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hands text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Bénévolat</h3>
+                    <p class="text-gray-600 mb-4">Engagez-vous à nos côtés et participez à nos différentes actions sur le terrain.</p>
+                    <a href="#" class="text-blue-600 font-medium inline-flex items-center">En savoir plus <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition">Découvrez tous nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Témoignages</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Découvrez ce que disent les personnes qui ont bénéficié de nos services.</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Marie D." class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Marie D.</h4>
+                            <p class="text-blue-600 text-sm">Bénéficiaire</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Grâce aux colis alimentaires de l'ASBL, j'ai pu traverser une période difficile sans avoir à choisir entre manger et payer mon loyer. Leur soutien a été précieux."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jean P." class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Jean P.</h4>
+                            <p class="text-blue-600 text-sm">Bénévole</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Donner de mon temps à cette ASBL m'a apporté bien plus que ce que j'ai pu leur apporter. La solidarité concrète change des vies, y compris la mienne."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sophie L." class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Sophie L.</h4>
+                            <p class="text-blue-600 text-sm">Membre</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"La formation en informatique m'a permis de retrouver confiance en moi et de décrocher un emploi stable après des années de chômage."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button id="open-testimonial-form" class="inline-block bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 px-8 py-3 rounded-md font-medium transition">Laissez votre témoignage</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Form Modal -->
+    <div id="testimonial-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Partagez votre expérience</h3>
+                <button id="close-testimonial-form" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="testimonial-form" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700 mb-2">Votre nom</label>
+                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                
+                <div>
+                    <label for="role" class="block text-gray-700 mb-2">Vous êtes</label>
+                    <select id="role" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <option value="beneficiary">Bénéficiaire</option>
+                        <option value="volunteer">Bénévole</option>
+                        <option value="member">Membre</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="testimonial" class="block text-gray-700 mb-2">Votre témoignage</label>
+                    <textarea id="testimonial" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                </div>
+                
+                <div>
+                    <label for="rating" class="block text-gray-700 mb-2">Note (sur 5)</label>
+                    <div class="flex space-x-2">
+                        <i class="far fa-star text-yellow-400 text-xl cursor-pointer" data-rating="1"></i>
+                        <i class="far fa-star text-yellow-400 text-xl cursor-pointer" data-rating="2"></i>
+                        <i class="far fa-star text-yellow-400 text-xl cursor-pointer" data-rating="3"></i>
+                        <i class="far fa-star text-yellow-400 text-xl cursor-pointer" data-rating="4"></i>
+                        <i class="far fa-star text-yellow-400 text-xl cursor-pointer" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" id="rating-value" value="0">
+                </div>
+                
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos événements à venir</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Découvrez nos prochaines activités et participez à nos événements.</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-blue-600 text-white flex flex-col items-center justify-center p-6">
+                        <span class="text-4xl font-bold">15</span>
+                        <span class="text-xl">Juin</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Collecte alimentaire</h3>
+                        <p class="text-gray-600 mb-4">Grande collecte de denrées non périssables dans les supermarchés partenaires. Venez nombreux !</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>10h00 - 18h00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Plusieurs lieux dans la ville</span>
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium">Plus d'infos <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-blue-600 text-white flex flex-col items-center justify-center p-6">
+                        <span class="text-4xl font-bold">22</span>
+                        <span class="text-xl">Juin</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Atelier CV et recherche d'emploi</h3>
+                        <p class="text-gray-600 mb-4">Session de formation pour améliorer votre CV et techniques de recherche d'emploi. Sur inscription.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>14h00 - 17h00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maison de l'ASBL, Rue Solidarité 42</span>
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium">Plus d'infos <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-blue-600 text-white flex flex-col items-center justify-center p-6">
+                        <span class="text-4xl font-bold">30</span>
+                        <span class="text-xl">Juin</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fête de la solidarité</h3>
+                        <p class="text-gray-600 mb-4">Notre événement annuel avec animations, concerts et stands associatifs. Entrée libre.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>12h00 - 22h00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Parc Central</span>
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium">Plus d'infos <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Event 4 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-blue-600 text-white flex flex-col items-center justify-center p-6">
+                        <span class="text-4xl font-bold">05</span>
+                        <span class="text-xl">Juillet</span>
+                        <span class="text-sm">2023</span>
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Réunion d'information pour bénévoles</h3>
+                        <p class="text-gray-600 mb-4">Découvrez comment vous engager à nos côtés et les différentes missions possibles.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>18h30 - 20h00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Maison de l'ASBL, Rue Solidarité 42</span>
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium">Plus d'infos <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition">Voir tous nos événements</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 mb-8 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Devenez membre de notre ASBL</h2>
+                    <p class="text-blue-100 mb-6">Rejoignez notre communauté engagée et participez activement à nos actions. En tant que membre, vous bénéficierez de nombreux avantages et contribuerez directement à nos projets.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+                            <span>Participation aux assemblées générales et droit de vote</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+                            <span>Accès privilégié à nos événements et formations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+                            <span>Newsletter exclusive avec nos actualités</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mr-3 mt-1 text-blue-200"></i>
+                            <span>Possibilité de s'impliquer dans nos projets</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-12">
+                    <div class="bg-white rounded-lg shadow-xl p-8 text-gray-800">
+                        <h3 class="text-2xl font-semibold mb-6">Formulaire d'adhésion</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="member-name" class="block text-gray-700 mb-2">Nom complet</label>
+                                <input type="text" id="member-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            
+                            <div>
+                                <label for="member-email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="member-email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            
+                            <div>
+                                <label for="member-phone" class="block text-gray-700 mb-2">Téléphone</label>
+                                <input type="tel" id="member-phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            
+                            <div>
+                                <label for="member-address" class="block text-gray-700 mb-2">Adresse</label>
+                                <textarea id="member-address" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                            </div>
+                            
+                            <div class="pt-2">
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition">Envoyer ma demande</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Nous sommes à votre disposition pour répondre à toutes vos questions.</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Prenez rendez-vous</h3>
+                    
+                    <form id="appointment-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Nom complet *</label>
+                            <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Téléphone *</label>
+                            <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="date" class="block text-gray-700 mb-2">Date souhaitée *</label>
+                            <input type="date" id="date" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-gray-700 mb-2">Service concerné *</label>
+                            <select id="service" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="">Sélectionnez un service</option>
+                                <option value="aide-alimentaire">Aide alimentaire</option>
+                                <option value="hebergement">Hébergement d'urgence</option>
+                                <option value="formation">Formation professionnelle</option>
+                                <option value="soutien">Soutien psychologique</option>
+                                <option value="jeunesse">Activités jeunesse</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition">Envoyer la demande</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Nos coordonnées</h3>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Adresse</h4>
+                                <p class="text-gray-600">Rue de la Solidarité 42<br>1000 Bruxelles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Téléphone</h4>
+                                <p class="text-gray-600">+32 2 123 45 67<br>Lundi au vendredi, 9h-17h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+                                <p class="text-gray-600">contact@solidarite-ensemble.be</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-gray-800 mb-4">Horaires d'ouverture</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Lundi</span>
+                                <span class="font-medium">9h00 - 17h00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Mardi</span>
+                                <span class="font-medium">9h00 - 17h00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Mercredi</span>
+                                <span class="font-medium">9h00 - 17h00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Jeudi</span>
+                                <span class="font-medium">9h00 - 17h00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-600">Vendredi</span>
+                                <span class="font-medium">9h00 - 17h00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Week-end</span>
+                                <span class="font-medium">Fermé</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.215382317159!2d4.355215315745916!3d50.84536697953198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c47fd3d0d6e9%3A0x5e0d5a5b5e5e5e5e!2sRue%20de%20la%20Solidarité%2042%2C%201000%20Bruxelles!5e0!3m2!1sfr!2sbe!4v1623345678909!5m2!1sfr!2sbe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg shadow-md"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-lg mr-3">
+                            SE
+                        </div>
+                        <span class="text-xl font-semibold">Solidarité Ensemble</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Association Sans But Lucratif œuvrant pour une société plus solidaire et inclusive depuis 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">À propos</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition">Événements</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Aide alimentaire</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Hébergement d'urgence</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Formation professionnelle</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Soutien psychologique</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Activités jeunesse</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Abonnez-vous à notre newsletter pour recevoir nos actualités.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-md text-gray-800 w-full focus:outline-none">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-md transition"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <p class="text-gray-400 text-sm mt-4">Numéro d'entreprise: BE 0123.456.789</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Solidarité Ensemble ASBL. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/3221234567" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-green-500 text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Demande envoyée avec succès !</h3>
+            <p class="text-gray-600 mb-6">Nous avons bien reçu votre demande et nous vous contacterons dans les plus brefs délais.</p>
+            <button id="close-success-modal" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition">Fermer</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Testimonial form modal
+        const openTestimonialBtn = document.getElementById('open-testimonial-form');
+        const closeTestimonialBtn = document.getElementById('close-testimonial-form');
+        const testimonialModal = document.getElementById('testimonial-modal');
+        
+        openTestimonialBtn.addEventListener('click', function() {
+            testimonialModal.classList.remove('hidden');
+        });
+        
+        closeTestimonialBtn.addEventListener('click', function() {
+            testimonialModal.classList.add('hidden');
+        });
+        
+        // Star rating for testimonials
+        const stars = document.querySelectorAll('[data-rating]');
+        const ratingValue = document.getElementById('rating-value');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                ratingValue.value = rating;
+                
+                // Update star display
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+        
+        // Form submissions
+        const testimonialForm = document.getElementById('testimonial-form');
+        const appointmentForm = document.getElementById('appointment-form');
+        const successModal = document.getElementById('success-modal');
+        const closeSuccessBtn = document.getElementById('close-success-modal');
+        
+        testimonialForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            testimonialModal.classList.add('hidden');
+            successModal.classList.remove('hidden');
+            this.reset();
+            
+            // Reset stars
+            stars.forEach(star => {
+                star.classList.remove('fas');
+                star.classList.add('far');
+            });
+            ratingValue.value = '0';
+        });
+        
+        appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            successModal.classList.remove('hidden');
+            this.reset();
+        });
+        
+        closeSuccessBtn.addEventListener('click', function() {
+            successModal.classList.add('hidden');
+        });
+        
+        // Close modals when clicking outside
+        [testimonialModal, successModal].forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
